@@ -2,5 +2,9 @@
 work in team
 
 # Our team:
-student №1 -
-student №2 -
+Yaroslav 
+Izghashev Volodymyr
+
+# Our responsibilities:
+Yaroslav - task1
+Izghashev Volodymyr - task2
