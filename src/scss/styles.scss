@@ -1,0 +1,171 @@
+@import "_reset";
+
+@import url("https://fonts.googleapis.com/css?family=Montserrat:regular,700)&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Lato:regular,italic,700,700&display=swap");
+
+// ЗМІННІ===========================================================================================================
+// Шрифт по замовчуванні
+$primaryFontFamily: "Roboto";
+$secondaryFontFamily: "Lato";
+
+// color
+$primaryColor: #8d81ac;
+$secondaryColor: #848e97;
+$lastColor: #ffffff;
+$overlayColor: #27262a;
+$menuColor: #333333;
+$quoteColor: #a291a5;
+$lineColor: #645766;
+
+// ================================================================================================================
+// МШКСИНИ
+@mixin textStyle ($fontWeight, $fontSize, $color) {
+	font-weight: $fontWeight;
+	font-size: $fontSize + px;
+	color: $color;
+}
+
+
+// ================================================================================================================
+.wrapper {
+	font-family: $primaryFontFamily;
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+.overlay {
+	background-color: #27262a;
+}
+
+.header {
+	// .header__logo
+
+	// .header__container
+	&__container {
+		padding: 0 10px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+	}
+
+	&__logo {}
+
+	// .header__logo--img
+
+	&__logo--img {
+		img {
+			display: inline-block;
+
+			&:hover {}
+		}
+	}
+
+	// .header__logo--title
+
+	&__logo--title {
+		a {
+			@include textStyle (700, 24, $primaryColor);
+			font-family: $secondaryFontFamily;
+			text-transform: uppercase;
+			transition: color 0.8s ease;
+
+			&:hover {
+				color: $lastColor;
+			}
+		}
+	}
+}
+
+.btn-header {
+	// .btn-header__buy
+
+	&__buy {
+		@include textStyle (700, 15, $primaryColor);
+		font-family: $primaryFontFamily;
+		text-decoration: none;
+		color: $lastColor;
+		padding: 11px 26px;
+		background-color: $primaryColor;
+		border-radius: 40px;
+	}
+
+	// .btn-header__download
+
+	&__download {}
+}
+
+
+.menu {
+	// .menu__list
+
+	&__list {
+		display: flex;
+		align-items: center;
+		gap: 47px;
+	}
+
+	// .menu__items
+
+	&__items {}
+
+	// .menu__link
+
+	&__link {}
+}
+
+.burger {
+	position: relative;
+	width: 30px;
+	height: 26px;
+	border: none;
+	padding: 0;
+	background-color: transparent;
+
+	&::before,
+	&::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		width: 100%;
+		height: 3px;
+		background-color: $lastColor;
+	}
+
+	&::before {
+		width: 15px;
+		top: 0;
+	}
+
+	&::after {
+		bottom: 0;
+	}
+
+	&__line {
+		position: absolute;
+		left: 0;
+		top: 50%;
+		width: 100%;
+		height: 3px;
+		background-color: $lastColor;
+		transform: translate(-50%);
+
+	}
+}
+
+
+.fork {
+	// .fork__title
+
+	&__title {}
+
+	// .fork__slogan
+
+	&__slogan {}
+
+	// .fork__version
+
+	&__version {}
+}
+
+.trial-period {}
