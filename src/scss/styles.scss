@@ -34,14 +34,17 @@ $breakpoints: (
 @mixin mq($width, $type: min) {
 	@if map_has_key($breakpoints, $width) {
 		$width: map_get($breakpoints, $width);
-		@if $type == max {
+
+		@if $type ==max {
 			$width: $width - 1px;
 		}
+
 		@media only screen and (#{$type}-width: $width) {
 			@content;
 		}
 	}
 }
+
 // ================================================================================================================
 .wrapper {
 	font-family: $primaryFontFamily;
@@ -52,12 +55,11 @@ $breakpoints: (
 
 .overlay {
 	background-color: #27262a;
+
 }
 
 @include mq("tablet") {
-	.overlay {
-		background-color: #27262a;
-	}
+	.overlay {}
 }
 
 @include mq("desktop") {
@@ -86,38 +88,62 @@ $breakpoints: (
 	// .header__logo--img
 
 	&__logo--img {
-		img {
-			&:hover {
-			}
+		width: 43px;
+		height: 41px;
+		fill: $primaryColor;
+		cursor: pointer;
+
+		&:hover {
+			fill: $lastColor;
+
 		}
 	}
 
 	// .header__logo--title
 
 	&__logo--title {
-		a {
-			display: none;
-		}
+
+		display: none;
+
 	}
 }
 
 @include mq("tablet") {
 	.header {
-		&__logo--title {
-			a {
-				@include textStyle(700, 24, $primaryColor);
-				font-family: $secondaryFontFamily;
-				text-transform: uppercase;
-				transition: color 0.5s ease;
-				display: flex;
+		&__logo--img {
 
-				&:hover {
-					color: $lastColor;
-				}
+			width: 43px;
+			height: 41px;
+			fill: $primaryColor;
+			transition: fill 0.5s ease;
+
+			&:hover {
+				fill: $lastColor;
+
+			}
+		}
+
+		&__logo--title {
+			@include textStyle(700, 24, $primaryColor);
+			font-family: $secondaryFontFamily;
+			text-transform: uppercase;
+			transition: color 0.5s ease;
+			display: flex;
+
+			&:hover {
+				color: $lastColor;
 			}
 		}
 	}
 }
+
+
+.header__logo--img:hover .header__logo--title {
+	color: $lastColor;
+	fill: $lastColor;
+}
+
+
 .btn-header {
 	padding: 45px 0 42px 0;
 	// .btn-header__buy
@@ -134,8 +160,7 @@ $breakpoints: (
 
 	// .btn-header__download
 
-	&__download {
-	}
+	&__download {}
 }
 
 .menu {
@@ -146,6 +171,9 @@ $breakpoints: (
 	z-index: 10;
 	transform: translate(120%);
 	transition: transform 0.6s ease-in-out;
+	max-height: calc(100vh - 104px);
+	overflow-y: auto;
+
 	&--visible {
 		transform: none;
 	}
@@ -161,12 +189,24 @@ $breakpoints: (
 	&__items {
 		padding: 29px 50px 21px 35px;
 		border-bottom: 3px solid $menuLines;
+
 	}
 
 	// .menu__link
 
 	&__link {
 		@include textStyle(400, 26, $lastColor);
+
+		&:active,
+		&:focus {
+			content: '';
+			@include textStyle(400, 26, $primaryColor);
+			border-left: 8px solid $primaryColor;
+			margin-left: -35px;
+			padding: 16px 0 10px 30px;
+
+		}
+
 	}
 }
 
@@ -212,21 +252,28 @@ $breakpoints: (
 		transform: translate(-50%);
 		border-radius: 5px;
 		transition: opacity 0.3s ease-in-out;
+
 		&--active {
 			opacity: 0;
 		}
 	}
+
 	&--active {
 		&::before {
 			top: 50%;
 			width: 100%;
 			transform: rotate(45deg);
 		}
+
 		&::after {
 			top: 50%;
 			transform: rotate(-45deg);
 		}
 	}
+}
+
+.stop-scroll {
+	overflow: hidden;
 }
 
 @include mq("tablet") {
@@ -238,19 +285,15 @@ $breakpoints: (
 .fork {
 	// .fork__title
 
-	&__title {
-	}
+	&__title {}
 
 	// .fork__slogan
 
-	&__slogan {
-	}
+	&__slogan {}
 
 	// .fork__version
 
-	&__version {
-	}
+	&__version {}
 }
 
-.trial-period {
-}
+.trial-period {}

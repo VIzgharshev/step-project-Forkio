@@ -95,8 +95,8 @@ function buildScripts() {
 			})
 		)
 		.pipe(babel({
-         presets: ['@babel/env']
-      }))
+			presets: ['@babel/env']
+		}))
 		.pipe(concat("scripts.js"))
 		.pipe(gulp.dest("./dist/"))
 		.pipe(rename({ suffix: ".min" }))
@@ -115,7 +115,7 @@ exports.watchScripts = watchScripts;
 //----------Обробка зображень 
 function img() {
 	return gulp
-		.src("./src/img/**/*.{png,jpg,jpeg,gif,svg}")
+		.src("./src/img/**/*.{png,jpg,jpeg,gif,svg,ico}")
 		.pipe(
 			plumber({
 				errorHandler: notify.onError((error) => ({
@@ -124,22 +124,22 @@ function img() {
 				})),
 			})
 		)
-      .pipe(imgmin({
-         verbose: true
-      }))
+		.pipe(imgmin({
+			verbose: true
+		}))
 		.pipe(gulp.dest("./dist/img"));
 }
 exports.img = img;
 
 function watchImg() {
 	return gulp
-		.watch("./src/img/**/*.{png,jpg,jpeg,gif,svg}", img)
+		.watch("./src/img/**/*.{png,jpg,jpeg,gif,svg,ico}", img)
 		.on("change", browserSync.reload);
 }
 exports.watchImg = watchImg;
 
 //----------Фінальні задачі gulp
-exports.dev = 
+exports.dev =
 	gulp.parallel(watchStyles, watchScripts, server);
 exports.build = gulp.series(
 	clear,
