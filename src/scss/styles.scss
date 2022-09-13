@@ -227,13 +227,14 @@ $breakpoints: (
 			transform: rotate(-45deg);
 		}
 	}
+}
 
-	@include mq("tablet") {
-		.burger {
-			display: none;
-		}
+@include mq("tablet") {
+	.burger {
+		display: none;
 	}
 }
+
 .fork {
 	// .fork__title
 
