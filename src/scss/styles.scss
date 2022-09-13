@@ -82,7 +82,7 @@ $breakpoints: (
 	&__logo {
 		display: flex;
 		align-items: center;
-		gap: 17px;
+
 	}
 
 	// .header__logo--img
@@ -125,6 +125,7 @@ $breakpoints: (
 
 		&__logo--title {
 			@include textStyle(700, 24, $primaryColor);
+			padding: 0 0 0 17px;
 			font-family: $secondaryFontFamily;
 			text-transform: uppercase;
 			transition: color 0.5s ease;
@@ -137,11 +138,14 @@ $breakpoints: (
 	}
 }
 
-
-.header__logo--img:hover .header__logo--title {
+.header__logo:hover .header__logo--title {
 	color: $lastColor;
+}
+
+.header__logo:hover .header__logo--img {
 	fill: $lastColor;
 }
+
 
 
 .btn-header {
