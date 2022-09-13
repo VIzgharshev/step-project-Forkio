@@ -14,27 +14,56 @@ $secondaryColor: #848e97;
 $lastColor: #ffffff;
 $overlayColor: #27262a;
 $menuColor: #333333;
+$menuLines: #3b3b3b;
 $quoteColor: #a291a5;
 $lineColor: #645766;
 
+$breakpoints: (
+	"tablet": 481px,
+	"desktop": 993px,
+);
+
 // ================================================================================================================
 // МШКСИНИ
-@mixin textStyle ($fontWeight, $fontSize, $color) {
+@mixin textStyle($fontWeight, $fontSize, $color) {
 	font-weight: $fontWeight;
 	font-size: $fontSize + px;
 	color: $color;
 }
 
-
+@mixin mq($width, $type: min) {
+	@if map_has_key($breakpoints, $width) {
+		$width: map_get($breakpoints, $width);
+		@if $type == max {
+			$width: $width - 1px;
+		}
+		@media only screen and (#{$type}-width: $width) {
+			@content;
+		}
+	}
+}
 // ================================================================================================================
 .wrapper {
 	font-family: $primaryFontFamily;
 	max-width: 1200px;
 	margin: 0 auto;
+	overflow-x: hidden;
 }
 
 .overlay {
 	background-color: #27262a;
+}
+
+@include mq("tablet") {
+	.overlay {
+		background-color: #27262a;
+	}
+}
+
+@include mq("desktop") {
+	.overlay {
+		display: none;
+	}
 }
 
 .header {
@@ -46,18 +75,20 @@ $lineColor: #645766;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-
 	}
 
-	&__logo {}
+	&__logo {
+		display: flex;
+		align-items: center;
+		gap: 17px;
+	}
 
 	// .header__logo--img
 
 	&__logo--img {
 		img {
-			display: inline-block;
-
-			&:hover {}
+			&:hover {
+			}
 		}
 	}
 
@@ -65,23 +96,34 @@ $lineColor: #645766;
 
 	&__logo--title {
 		a {
-			@include textStyle (700, 24, $primaryColor);
-			font-family: $secondaryFontFamily;
-			text-transform: uppercase;
-			transition: color 0.8s ease;
-
-			&:hover {
-				color: $lastColor;
-			}
+			display: none;
 		}
 	}
 }
 
+@include mq("tablet") {
+	.header {
+		&__logo--title {
+			a {
+				@include textStyle(700, 24, $primaryColor);
+				font-family: $secondaryFontFamily;
+				text-transform: uppercase;
+				transition: color 0.5s ease;
+				display: flex;
+
+				&:hover {
+					color: $lastColor;
+				}
+			}
+		}
+	}
+}
 .btn-header {
+	padding: 45px 0 42px 0;
 	// .btn-header__buy
 
 	&__buy {
-		@include textStyle (700, 15, $primaryColor);
+		@include textStyle(700, 15, $primaryColor);
 		font-family: $primaryFontFamily;
 		text-decoration: none;
 		color: $lastColor;
@@ -92,48 +134,68 @@ $lineColor: #645766;
 
 	// .btn-header__download
 
-	&__download {}
+	&__download {
+	}
 }
 
-
 .menu {
-	// .menu__list
+	position: fixed;
+	width: 93%;
+	top: 104px;
+	background-color: #333333;
+	z-index: 10;
+	transform: translate(120%);
+	transition: transform 0.6s ease-in-out;
+	&--visible {
+		transform: none;
+	}
 
 	&__list {
-		display: flex;
+		flex-direction: column;
 		align-items: center;
-		gap: 47px;
+		margin: 0 0 14px 0;
 	}
 
 	// .menu__items
 
-	&__items {}
+	&__items {
+		padding: 29px 50px 21px 35px;
+		border-bottom: 3px solid $menuLines;
+	}
 
 	// .menu__link
 
-	&__link {}
+	&__link {
+		@include textStyle(400, 26, $lastColor);
+	}
+}
+
+@include mq("tablet") {
+	.menu {
+		// .menu__list
+	}
 }
 
 .burger {
 	position: relative;
-	width: 30px;
-	height: 26px;
+	width: 26px;
+	height: 20px;
 	border: none;
-	padding: 0;
-	background-color: transparent;
 
 	&::before,
 	&::after {
-		content: '';
+		content: "";
 		position: absolute;
-		left: 0;
+		right: 0;
 		width: 100%;
 		height: 3px;
 		background-color: $lastColor;
+		border-radius: 5px;
+		transition: transform 0.3s ease-in-out;
 	}
 
 	&::before {
-		width: 15px;
+		width: 50%;
 		top: 0;
 	}
 
@@ -143,29 +205,51 @@ $lineColor: #645766;
 
 	&__line {
 		position: absolute;
-		left: 0;
-		top: 50%;
+		top: 45%;
 		width: 100%;
 		height: 3px;
 		background-color: $lastColor;
 		transform: translate(-50%);
+		border-radius: 5px;
+		transition: opacity 0.3s ease-in-out;
+		&--active {
+			opacity: 0;
+		}
+	}
+	&--active {
+		&::before {
+			top: 50%;
+			width: 100%;
+			transform: rotate(45deg);
+		}
+		&::after {
+			top: 50%;
+			transform: rotate(-45deg);
+		}
+	}
 
+	@include mq("tablet") {
+		.burger {
+			display: none;
+		}
 	}
 }
-
-
 .fork {
 	// .fork__title
 
-	&__title {}
+	&__title {
+	}
 
 	// .fork__slogan
 
-	&__slogan {}
+	&__slogan {
+	}
 
 	// .fork__version
 
-	&__version {}
+	&__version {
+	}
 }
 
-.trial-period {}
+.trial-period {
+}
