@@ -55,36 +55,38 @@ $breakpoints: (
 
 .overlay {
 	background-color: #27262a;
-
 }
 
 @include mq("tablet") {
-	.overlay {}
+	.overlay {
+	}
 }
 
 @include mq("desktop") {
 	.overlay {
-		display: none;
+		background-color: transparent;
 	}
 }
 
 .header {
-	// .header__logo
-
+	background-image: url(img/YPImg/fon_header.jpg);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	width: 100%;
 	// .header__container
 	&__container {
 		padding: 0 10px;
 		display: flex;
+		flex-wrap: wrap;
 		justify-content: space-between;
 		align-items: center;
 	}
+	// .header__logo
 
 	&__logo {
-		display: flex;
-		align-items: center;
-
+		margin: 34px 0 30px 0;
 	}
-
 	// .header__logo--img
 
 	&__logo--img {
@@ -95,23 +97,30 @@ $breakpoints: (
 
 		&:hover {
 			fill: $lastColor;
-
 		}
 	}
 
 	// .header__logo--title
 
 	&__logo--title {
-
 		display: none;
-
 	}
 }
 
 @include mq("tablet") {
 	.header {
+		&__container {
+			padding: 0 20px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+		&__logo {
+			display: flex;
+			align-items: center;
+			margin: 22px 0;
+		}
 		&__logo--img {
-
 			width: 43px;
 			height: 41px;
 			fill: $primaryColor;
@@ -119,7 +128,6 @@ $breakpoints: (
 
 			&:hover {
 				fill: $lastColor;
-
 			}
 		}
 
@@ -138,6 +146,21 @@ $breakpoints: (
 	}
 }
 
+@include mq("desktop") {
+	.header {
+		&__container {
+			padding: 0 90px;
+			display: grid;
+			grid-template-columns: minmax(160px, 160px) minmax(160px, 1fr) minmax(145px, 145px);
+			justify-items: center;
+			align-items: center;
+		}
+		.btn-header {
+			order: 3;
+		}
+	}
+}
+
 .header__logo:hover .header__logo--title {
 	color: $lastColor;
 }
@@ -146,10 +169,8 @@ $breakpoints: (
 	fill: $lastColor;
 }
 
-
-
 .btn-header {
-	padding: 45px 0 42px 0;
+	margin: 34px 0 32px 0;
 	// .btn-header__buy
 
 	&__buy {
@@ -160,11 +181,35 @@ $breakpoints: (
 		padding: 11px 26px;
 		background-color: $primaryColor;
 		border-radius: 40px;
+		&:hover {
+			color: $primaryColor;
+			background-color: $lastColor;
+		}
 	}
 
 	// .btn-header__download
 
-	&__download {}
+	&__download {
+	}
+}
+
+@include mq("tablet") {
+	.btn-header {
+		margin: 24px 0 23px 0;
+		&__buy {
+			@include textStyle(700, 16, $primaryColor);
+			font-family: $primaryFontFamily;
+			text-decoration: none;
+			color: $lastColor;
+			padding: 11px 36px;
+			background-color: $primaryColor;
+			border-radius: 40px;
+			&:hover {
+				color: $primaryColor;
+				background-color: $lastColor;
+			}
+		}
+	}
 }
 
 .menu {
@@ -193,7 +238,6 @@ $breakpoints: (
 	&__items {
 		padding: 29px 50px 21px 35px;
 		border-bottom: 3px solid $menuLines;
-
 	}
 
 	// .menu__link
@@ -203,20 +247,91 @@ $breakpoints: (
 
 		&:active,
 		&:focus {
-			content: '';
+			content: "";
 			@include textStyle(400, 26, $primaryColor);
 			border-left: 8px solid $primaryColor;
 			margin-left: -35px;
 			padding: 16px 0 10px 30px;
-
 		}
-
 	}
 }
 
 @include mq("tablet") {
 	.menu {
-		// .menu__list
+		background-color: transparent;
+		position: relative;
+		top: 0;
+		left: 0;
+		width: 100%;
+		transform: none;
+
+		&__list {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			gap: 43px;
+		}
+
+		// .menu__items
+
+		&__items {
+			padding: 0;
+			border: none;
+		}
+
+		// .menu__link
+
+		&__link {
+			@include textStyle(700, 16, $primaryColor);
+			&:hover {
+				color: $lastColor;
+			}
+
+			&:active,
+			&:focus {
+				@include textStyle(700, 16, $primaryColor);
+				border: none;
+			}
+		}
+	}
+}
+
+@include mq("desktop") {
+	.menu {
+		// background-color: transparent;
+		// position: relative;
+		// top: 0;
+		// left: 0;
+		// width: 100%;
+		// transform: none;
+
+		&__list {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			gap: 43px;
+		}
+
+		// .menu__items
+
+		&__items {
+			padding: 0;
+			border: none;
+		}
+
+		// .menu__link
+
+		&__link {
+			@include textStyle(700, 16, $primaryColor);
+
+			&:active,
+			&:focus {
+				@include textStyle(700, 16, $primaryColor);
+				border: none;
+			}
+		}
 	}
 }
 
@@ -225,6 +340,7 @@ $breakpoints: (
 	width: 26px;
 	height: 20px;
 	border: none;
+	margin: 42px 0 40px 0;
 
 	&::before,
 	&::after {
@@ -289,15 +405,19 @@ $breakpoints: (
 .fork {
 	// .fork__title
 
-	&__title {}
+	&__title {
+	}
 
 	// .fork__slogan
 
-	&__slogan {}
+	&__slogan {
+	}
 
 	// .fork__version
 
-	&__version {}
+	&__version {
+	}
 }
 
-.trial-period {}
+.trial-period {
+}
