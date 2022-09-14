@@ -57,11 +57,6 @@ $breakpoints: (
 	background-color: #27262a;
 }
 
-@include mq("tablet") {
-	.overlay {
-	}
-}
-
 @include mq("desktop") {
 	.overlay {
 		background-color: transparent;
@@ -70,10 +65,8 @@ $breakpoints: (
 
 .header {
 	background-image: url(img/YPImg/fon_header.jpg);
-	background-position: center;
-	background-size: cover;
 	background-repeat: no-repeat;
-	width: 100%;
+
 	// .header__container
 	&__container {
 		padding: 0 10px;
@@ -85,7 +78,7 @@ $breakpoints: (
 	// .header__logo
 
 	&__logo {
-		margin: 34px 0 30px 0;
+		margin: 34px 0 26px 0;
 	}
 	// .header__logo--img
 
@@ -299,13 +292,6 @@ $breakpoints: (
 
 @include mq("desktop") {
 	.menu {
-		// background-color: transparent;
-		// position: relative;
-		// top: 0;
-		// left: 0;
-		// width: 100%;
-		// transform: none;
-
 		&__list {
 			display: flex;
 			flex-direction: row;
@@ -403,19 +389,26 @@ $breakpoints: (
 }
 
 .fork {
+	margin: 50px 0 0 0;
+	text-align: center;
 	// .fork__title
 
 	&__title {
+		@include textStyle(700, 48, $lastColor);
 	}
 
 	// .fork__slogan
 
 	&__slogan {
+		@include textStyle(400, 18, $primaryColor);
+		margin: 0 0 14px 0;
 	}
 
 	// .fork__version
 
 	&__version {
+		@include textStyle(400, 14, $secondaryColor);
+		text-transform: uppercase;
 	}
 }
 
