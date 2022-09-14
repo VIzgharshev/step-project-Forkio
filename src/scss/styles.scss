@@ -5,7 +5,7 @@
 
 // ЗМІННІ===========================================================================================================
 // Шрифт по замовчуванні
-$primaryFontFamily: "Roboto";
+$primaryFontFamily: "Montserrat";
 $secondaryFontFamily: "Lato";
 
 // color
@@ -53,6 +53,10 @@ $breakpoints: (
 	overflow-x: hidden;
 }
 
+.container {
+	padding: 0 10px;
+}
+
 .overlay {
 	background-color: #27262a;
 }
@@ -66,20 +70,26 @@ $breakpoints: (
 .header {
 	background-image: url(img/YPImg/fon_header.jpg);
 	background-repeat: no-repeat;
+	background-position-x: center;
+
+
+
+
 
 	// .header__container
 	&__container {
-		padding: 0 10px;
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-between;
 		align-items: center;
 	}
+
 	// .header__logo
 
 	&__logo {
 		margin: 34px 0 26px 0;
 	}
+
 	// .header__logo--img
 
 	&__logo--img {
@@ -108,11 +118,13 @@ $breakpoints: (
 			justify-content: space-between;
 			align-items: center;
 		}
+
 		&__logo {
 			display: flex;
 			align-items: center;
 			margin: 22px 0;
 		}
+
 		&__logo--img {
 			width: 43px;
 			height: 41px;
@@ -137,6 +149,7 @@ $breakpoints: (
 			}
 		}
 	}
+
 }
 
 @include mq("desktop") {
@@ -144,10 +157,11 @@ $breakpoints: (
 		&__container {
 			padding: 0 90px;
 			display: grid;
-			grid-template-columns: minmax(160px, 160px) minmax(160px, 1fr) minmax(145px, 145px);
+			grid-template-columns: minmax(160px, 160px) minmax(160px, 1fr) minmax(160px, 160px);
 			justify-items: center;
 			align-items: center;
 		}
+
 		.btn-header {
 			order: 3;
 		}
@@ -174,29 +188,25 @@ $breakpoints: (
 		padding: 11px 26px;
 		background-color: $primaryColor;
 		border-radius: 40px;
+
 		&:hover {
 			color: $primaryColor;
 			background-color: $lastColor;
 		}
 	}
 
-	// .btn-header__download
-
-	&__download {
-	}
 }
 
 @include mq("tablet") {
 	.btn-header {
 		margin: 24px 0 23px 0;
+
 		&__buy {
-			@include textStyle(700, 16, $primaryColor);
-			font-family: $primaryFontFamily;
-			text-decoration: none;
-			color: $lastColor;
+			@include textStyle(700, 16, $lastColor);
 			padding: 11px 36px;
 			background-color: $primaryColor;
 			border-radius: 40px;
+
 			&:hover {
 				color: $primaryColor;
 				background-color: $lastColor;
@@ -263,7 +273,7 @@ $breakpoints: (
 			flex-direction: row;
 			justify-content: center;
 			align-items: center;
-			gap: 43px;
+			gap: 22px;
 		}
 
 		// .menu__items
@@ -277,6 +287,7 @@ $breakpoints: (
 
 		&__link {
 			@include textStyle(700, 16, $primaryColor);
+
 			&:hover {
 				color: $lastColor;
 			}
@@ -297,7 +308,7 @@ $breakpoints: (
 			flex-direction: row;
 			justify-content: center;
 			align-items: center;
-			gap: 43px;
+			gap: 40px;
 		}
 
 		// .menu__items
@@ -385,16 +396,18 @@ $breakpoints: (
 @include mq("tablet") {
 	.burger {
 		display: none;
+
 	}
 }
 
 .fork {
-	margin: 50px 0 0 0;
+	margin: 58px 0 0 0;
 	text-align: center;
 	// .fork__title
 
 	&__title {
 		@include textStyle(700, 48, $lastColor);
+		margin: 0 0 33px 0;
 	}
 
 	// .fork__slogan
@@ -409,8 +422,30 @@ $breakpoints: (
 	&__version {
 		@include textStyle(400, 14, $secondaryColor);
 		text-transform: uppercase;
+		padding: 0 0 400px 0;
+	}
+}
+
+.batton {
+	text-align: center;
+
+
+	&__download {
+		@include textStyle(700, 18, $lastColor);
+		padding: 13px 29px;
+		background-color: $primaryColor;
+		border-radius: 40px;
+
+		&:hover {
+			color: $primaryColor;
+			background-color: $lastColor;
+		}
 	}
 }
 
 .trial-period {
+	@include textStyle(400, 14, $secondaryColor);
+	text-transform: uppercase;
+	text-align: center;
+	margin: 28px 0 0 0;
 }
