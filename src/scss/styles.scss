@@ -17,6 +17,7 @@ $menuColor: #333333;
 $menuLines: #3b3b3b;
 $quoteColor: #a291a5;
 $lineColor: #645766;
+$bgColor: #4A3B4E;
 
 $breakpoints: (
 	"tablet": 481px,
@@ -456,6 +457,7 @@ $breakpoints: (
 .trial {
 	background-color: $lastColor;
 	padding: 26px 0 80px 0;
+
 	&__period {
 		@include textStyle(400, 14, $secondaryColor);
 		text-transform: uppercase;
@@ -496,9 +498,13 @@ $breakpoints: (
 // SECTION People Are Talking About Fork
 
 .people-talking {
-	background-image: url(img/YPImg/section3.jpg);
+	background-image: url(img/YPImg/section3.png);
 	background-repeat: no-repeat;
-	background-size: cover;
+	background-position-x: center;
+	background-color: $bgColor;
+
+
+
 
 	// .people-talking__title
 
@@ -518,6 +524,7 @@ $breakpoints: (
 		}
 	}
 }
+
 @include mq("desktop") {
 	.people-talking {
 		// .people-talking__title
@@ -531,10 +538,11 @@ $breakpoints: (
 .partners {
 	display: grid;
 	grid-template-columns: 1fr;
-	// justify-items: center;
-	// align-items: center;
+
+
 
 	// .partners__wrap
+
 	.partners__wrap {
 		display: flex;
 		flex-direction: column;
@@ -572,24 +580,29 @@ $breakpoints: (
 		grid-template-columns: repeat(2, 1fr);
 		align-items: end;
 		gap: 58px 97px;
+
 		&__img {
 			padding: 0 0 33px 0;
 		}
+
 		&__quote {
 			grid-column-start: 1;
 			grid-column-end: 3;
 		}
 	}
 }
+
 @include mq("desktop") {
 	.partners {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
 		align-items: end;
 		column-gap: 112px 97px;
+
 		&__img {
 			padding: 0 0 33px 0;
 		}
+
 		&__quote {
 			grid-column-start: 1;
 			grid-column-end: 4;
