@@ -68,6 +68,7 @@ $breakpoints: (
 }
 
 .header {
+	position: relative;
 	background-image: url(img/YPImg/fon_header.jpg);
 	background-repeat: no-repeat;
 	background-position-x: center;
@@ -421,6 +422,9 @@ $breakpoints: (
 
 .batton {
 	text-align: center;
+	position: absolute;
+	width: 100%;
+	bottom: -1%;
 
 	&__download {
 		@include textStyle(700, 18, $lastColor);
@@ -466,7 +470,7 @@ $breakpoints: (
 @include mq("desktop") {
 	.fork {
 		&__version {
-			padding: 0 0 500px 0;
+			padding: 0 0 516px 0;
 		}
 	}
 
@@ -474,3 +478,5 @@ $breakpoints: (
 		background-color: transparent;
 	}
 }
+
+// SECTION People Are Talking About Fork
