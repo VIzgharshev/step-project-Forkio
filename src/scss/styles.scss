@@ -72,10 +72,6 @@ $breakpoints: (
 	background-repeat: no-repeat;
 	background-position-x: center;
 
-
-
-
-
 	// .header__container
 	&__container {
 		display: flex;
@@ -149,7 +145,6 @@ $breakpoints: (
 			}
 		}
 	}
-
 }
 
 @include mq("desktop") {
@@ -194,7 +189,6 @@ $breakpoints: (
 			background-color: $lastColor;
 		}
 	}
-
 }
 
 @include mq("tablet") {
@@ -396,7 +390,6 @@ $breakpoints: (
 @include mq("tablet") {
 	.burger {
 		display: none;
-
 	}
 }
 
@@ -422,13 +415,12 @@ $breakpoints: (
 	&__version {
 		@include textStyle(400, 14, $secondaryColor);
 		text-transform: uppercase;
-		padding: 0 0 400px 0;
+		padding: 0 0 407px 0;
 	}
 }
 
 .batton {
 	text-align: center;
-
 
 	&__download {
 		@include textStyle(700, 18, $lastColor);
@@ -443,9 +435,43 @@ $breakpoints: (
 	}
 }
 
-.trial-period {
-	@include textStyle(400, 14, $secondaryColor);
-	text-transform: uppercase;
-	text-align: center;
-	margin: 28px 0 0 0;
+.trial {
+	background-color: $lastColor;
+	padding: 26px 0 0 0;
+	&__period {
+		@include textStyle(400, 14, $secondaryColor);
+		text-transform: uppercase;
+		text-align: center;
+	}
+}
+
+@include mq("tablet") {
+	.fork {
+		&__version {
+			padding: 0 0 462px 0;
+		}
+	}
+
+	.batton {
+		&__download {
+			@include textStyle(700, 21, $lastColor);
+		}
+	}
+
+	.trial {
+		padding: 26px 0 0 0;
+	}
+}
+
+@include mq("desktop") {
+	.fork {
+		&__version {
+			padding: 0 0 500px 0;
+		}
+	}
+
+	.trial {
+		background-color: transparent;
+		padding: 0;
+	}
 }
