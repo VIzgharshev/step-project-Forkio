@@ -57,6 +57,18 @@ $breakpoints: (
 	padding: 0 10px;
 }
 
+@include mq("tablet") {
+	.container {
+		padding: 0 20px;
+	}
+}
+
+@include mq("desktop") {
+	.container {
+		padding: 0 80px;
+	}
+}
+
 .overlay {
 	background-color: #27262a;
 }
@@ -110,7 +122,7 @@ $breakpoints: (
 @include mq("tablet") {
 	.header {
 		&__container {
-			padding: 0 20px;
+			// padding: 0 20px;
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
@@ -151,7 +163,7 @@ $breakpoints: (
 @include mq("desktop") {
 	.header {
 		&__container {
-			padding: 0 90px;
+			// padding: 0 90px;
 			display: grid;
 			grid-template-columns: minmax(160px, 160px) minmax(160px, 1fr) minmax(160px, 160px);
 			justify-items: center;
@@ -425,6 +437,7 @@ $breakpoints: (
 	position: absolute;
 	width: 100%;
 	bottom: -1%;
+	left: 0;
 
 	&__download {
 		@include textStyle(700, 18, $lastColor);
@@ -435,13 +448,14 @@ $breakpoints: (
 		&:hover {
 			color: $primaryColor;
 			background-color: $lastColor;
+			border: 2px solid$primaryColor;
 		}
 	}
 }
 
 .trial {
 	background-color: $lastColor;
-	padding: 26px 0 0 0;
+	padding: 26px 0 80px 0;
 	&__period {
 		@include textStyle(400, 14, $secondaryColor);
 		text-transform: uppercase;
@@ -463,7 +477,7 @@ $breakpoints: (
 	}
 
 	.trial {
-		padding: 42px 0 0 0;
+		padding: 42px 0 94px 0;
 	}
 }
 
@@ -476,7 +490,101 @@ $breakpoints: (
 
 	.trial {
 		background-color: transparent;
+		padding: 26px 0 66px 0;
 	}
 }
 
 // SECTION People Are Talking About Fork
+
+.people-talking {
+	background-image: url(img/YPImg/section3.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	// .people-talking__title
+
+	&__title {
+		@include textStyle(700, 36, $lastColor);
+		text-align: center;
+		padding: 50px 0 53px 0;
+	}
+}
+
+@include mq("tablet") {
+	.people-talking {
+		// .people-talking__title
+
+		&__title {
+			padding: 88px 0;
+		}
+	}
+}
+@include mq("desktop") {
+	.people-talking {
+		// .people-talking__title
+
+		&__title {
+			padding: 108px 0 81px 0;
+		}
+	}
+}
+
+.partners {
+	display: grid;
+	grid-template-columns: 1fr;
+	// justify-items: center;
+	// align-items: center;
+
+	// .partners__wrap
+	.partners__wrap {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+
+	// .partners__img
+	&__img {
+		padding: 45px 0 33px 0;
+	}
+
+	// .partners__text
+
+	&__text {
+		font-family: $secondaryFontFamily;
+		font-style: italic;
+		@include textStyle(700, 16, $lastColor);
+		text-align: center;
+	}
+
+	&__quote {
+		font-family: $secondaryFontFamily;
+		@include textStyle(400, 14, $quoteColor);
+		text-align: center;
+		padding: 37px 0 22px 0;
+		border-bottom: 2px solid $lineColor;
+	}
+}
+
+@include mq("tablet") {
+	.partners {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		align-items: end;
+		gap: 58px 97px;
+		&__img {
+			padding: 0 0 33px 0;
+		}
+	}
+}
+@include mq("desktop") {
+	.partners {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		align-items: end;
+		column-gap: 112px 97px;
+		&__img {
+			padding: 0 0 33px 0;
+		}
+	}
+}
