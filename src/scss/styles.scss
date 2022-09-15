@@ -563,6 +563,7 @@ $breakpoints: (
 		text-align: center;
 		padding: 37px 0 22px 0;
 		border-bottom: 2px solid $lineColor;
+		margin: 0 0 88px 0;
 	}
 }
 
@@ -575,6 +576,10 @@ $breakpoints: (
 		&__img {
 			padding: 0 0 33px 0;
 		}
+		&__quote {
+			grid-column-start: 1;
+			grid-column-end: 3;
+		}
 	}
 }
 @include mq("desktop") {
@@ -585,6 +590,10 @@ $breakpoints: (
 		column-gap: 112px 97px;
 		&__img {
 			padding: 0 0 33px 0;
+		}
+		&__quote {
+			grid-column-start: 1;
+			grid-column-end: 4;
 		}
 	}
 }
