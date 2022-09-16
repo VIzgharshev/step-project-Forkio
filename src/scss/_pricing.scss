@@ -1,0 +1,173 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:regular,700)&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Lato:regular,italic,700,700&display=swap");
+
+// ЗМІННІ===========================================================================================================
+// Шрифт по замовчуванні
+$primaryFontFamily: "Montserrat";
+$secondaryFontFamily: "Lato";
+
+// color
+$primaryColor: #8d81ac;
+$secondaryColor: #848e97;
+$lastColor: #ffffff;
+$overlayColor: #27262a;
+$menuColor: #333333;
+$menuLines: #3b3b3b;
+$quoteColor: #a291a5;
+$lineColor: #645766;
+$bgColor: #4a3b4e;
+$titleColor: #635c73;
+$subtitleColor: #323232;
+
+$gitBtnBorderText: #24292f;
+$gitBtnCounter: rgba(27, 31, 36, 0.08);
+
+$pricingColor1: rgba(255, 255, 255, 0.06);
+$pricingColor2: rgba(255, 255, 255, 0.11);
+$pricingColor3: rgba(0, 0, 0, 0.11);
+$pricingColor4: rgba(70, 48, 72, 0.84);
+$pricingBtnColor: rgba(255, 255, 255, 0.15);
+
+$breakpoints: (
+	"tablet": 481px,
+	"desktop": 993px,
+);
+
+// ================================================================================================================
+// МІКСИНИ
+@mixin textStyle($fontWeight, $fontSize, $color) {
+	font-weight: $fontWeight;
+	font-size: $fontSize + px;
+	color: $color;
+}
+
+@mixin mq($width, $type: min) {
+	@if map_has_key($breakpoints, $width) {
+		$width: map_get($breakpoints, $width);
+
+		@if $type ==max {
+			$width: $width - 1px;
+		}
+
+		@media only screen and (#{$type}-width: $width) {
+			@content;
+		}
+	}
+}
+
+// ================================================================================================================
+.pricing {
+	margin: 0 auto;
+	text-align: center;
+	background: url(/dist/img/IV-img/testmonials-bg.png) no-repeat;
+   background-size: auto 100%;
+	&__title {
+		margin: 0 15px;
+		font-family: $primaryFontFamily;
+		@include textStyle(700, 28, $lastColor);
+		line-height: 42px;
+	}
+}
+.product-list{
+   padding-bottom: 12px;
+}
+.product {
+	max-width: 257px;
+	min-height: 457px;
+	margin: 18px auto 0;
+   background-color: $pricingColor2;
+	&__title {
+		padding: 36px 60px;
+		background-color: $pricingColor1;
+		font-family: $primaryFontFamily;
+		text-transform: uppercase;
+		@include textStyle(400, 24, $lastColor);
+	}
+	&__price {
+		display: block;
+		padding: 30px 0 20px;
+		font-family: $primaryFontFamily;
+		@include textStyle(700, 60, $lastColor);
+	}
+	&__term {
+		display: block;
+		text-transform: uppercase;
+		font-family: $primaryFontFamily;
+		@include textStyle(400, 14, $lastColor);
+		position: relative;
+	}
+	&__term::after {
+		content: "";
+		width: 60px;
+		height: 5px;
+		background-color: $primaryColor;
+		position: absolute;
+		left: 99px;
+		top: 56px;
+	}
+	&__license {
+		display: block;
+		margin: 73px 0 39px;
+		font-family: $primaryFontFamily;
+		@include textStyle(400, 16, $lastColor);
+	}
+	&__btn {
+		padding: 13.5px 36px;
+		text-transform: uppercase;
+		font-family: $primaryFontFamily;
+		@include textStyle(400, 15, $lastColor);
+      border-radius: 23px;
+		background-color: $pricingBtnColor;
+	}
+}
+
+.product-large {
+   max-width: 299px;
+	min-height: 560px;
+	margin: 18px auto 0;
+   background-color: $pricingColor4;
+   &__title {
+      padding: 43px 97px;
+		background-color: $pricingColor3;
+		font-family: $primaryFontFamily;
+		text-transform: uppercase;
+		@include textStyle(400, 24, $lastColor);
+   }
+   &__price {
+      display: block;
+		padding: 14px 0 16px;
+		font-family: $primaryFontFamily;
+		@include textStyle(700, 82, $lastColor);
+   }
+   &__term {
+      display: block;
+		text-transform: uppercase;
+		font-family: $primaryFontFamily;
+		@include textStyle(400, 14, $lastColor);
+		position: relative;
+   }
+   &__term::after {
+		content: "";
+		width: 60px;
+		height: 5px;
+		background-color: $primaryColor;
+		position: absolute;
+		left: 120px;
+		top: 66px;
+	}
+   &__license {
+      display: block;
+		margin: 91px 0 63px;
+		font-family: $primaryFontFamily;
+		@include textStyle(400, 16, $lastColor);
+      line-height: 32px;
+   }
+   &__btn {
+      padding: 18.5px 48px;
+      border-radius: 30px;
+      text-transform: uppercase;
+		font-family: $primaryFontFamily;
+		@include textStyle(400, 15, $lastColor);
+      background: $pricingBtnColor;
+   }
+}

@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:regular,700)&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Lato:regular,italic,700,700&display=swap");
+
+// ЗМІННІ===========================================================================================================
+// Шрифт по замовчуванні
+$primaryFontFamily: "Montserrat";
+$secondaryFontFamily: "Lato";
+
+// color
+$primaryColor: #8d81ac;
+$secondaryColor: #848e97;
+$lastColor: #ffffff;
+$overlayColor: #27262a;
+$menuColor: #333333;
+$menuLines: #3b3b3b;
+$quoteColor: #a291a5;
+$lineColor: #645766;
+$bgColor: #4a3b4e;
+$titleColor: #635c73;
+$subtitleColor: #323232;
+
+$gitBtnBorderText: #24292f;
+$gitBtnCounter: rgba(27, 31, 36, 0.08);
+
+$breakpoints: (
+	"tablet": 481px,
+	"desktop": 993px,
+);
+
+// ================================================================================================================
+// МІКСИНИ
+@mixin textStyle($fontWeight, $fontSize, $color) {
+	font-weight: $fontWeight;
+	font-size: $fontSize + px;
+	color: $color;
+}
+
+@mixin mq($width, $type: min) {
+	@if map_has_key($breakpoints, $width) {
+		$width: map_get($breakpoints, $width);
+
+		@if $type ==max {
+			$width: $width - 1px;
+		}
+
+		@media only screen and (#{$type}-width: $width) {
+			@content;
+		}
+	}
+}
+
+// ================================================================================================================
+
+.you-get {
+   min-width: 320px;
+   margin: 120px auto 0;
+	text-align: center;
+   overflow: hidden;
+   &__inner-wrapper {
+      display: grid;
+      justify-content: center;
+      grid-template-columns: 269px;
+   }
+   &__title {
+		font-family: $primaryFontFamily;
+		@include textStyle(700, 32, $primaryColor);
+   }
+   &__list {
+   }
+   &__item {
+      margin: 36px 0 0;
+   }
+   &__icon {
+   }
+   &__item-title {
+      margin: 14px 0 ;
+      @include textStyle(400, 16, $subtitleColor);
+   }
+   &__item-subtitle {
+      @include textStyle(400, 14, $secondaryColor);
+   }
+   &__screenshot {
+      margin: 58px 0 0;
+      max-height: 381px;
+   }
+}
