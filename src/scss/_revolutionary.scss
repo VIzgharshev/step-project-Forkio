@@ -10,16 +10,11 @@ $secondaryFontFamily: "Lato";
 $primaryColor: #8d81ac;
 $secondaryColor: #848e97;
 $lastColor: #ffffff;
-$overlayColor: #27262a;
-$menuColor: #333333;
-$menuLines: #3b3b3b;
-$quoteColor: #a291a5;
-$lineColor: #645766;
-$bgColor: #4a3b4e;
 $titleColor: #635c73;
 $subtitleColor: #323232;
 
-$gitBtnBorderText: #24292f;
+$gitBtnBorder: #a7a7a7;
+$gitBtnText: #363636;
 $gitBtnCounter: rgba(27, 31, 36, 0.08);
 
 $breakpoints: (
@@ -35,70 +30,133 @@ $breakpoints: (
 	color: $color;
 }
 
-@mixin mq($width, $type: min) {
-	@if map_has_key($breakpoints, $width) {
-		$width: map_get($breakpoints, $width);
-
-		@if $type ==max {
-			$width: $width - 1px;
-		}
-
-		@media only screen and (#{$type}-width: $width) {
-			@content;
-		}
-	}
-}
-
 // ================================================================================================================
 
 .revolutionary {
 	margin: 52px 24px 0;
 	text-align: center;
-   &__title {
-      text-transform: uppercase;
-      font-family: $primaryFontFamily;
-      @include textStyle(700, 26, $titleColor);
-      line-height: 28px;
-   }
-   &__subtitle {
-      margin: 28px 0 0;
-      font-family: $secondaryFontFamily;
-      font-style: normal;
-      font-weight: 400;
-      font-size: 14px;
-      line-height: 20px;
-      color: $subtitleColor
-   }
+	&__title {
+		text-transform: uppercase;
+		font-family: $primaryFontFamily;
+		@include textStyle(700, 26, $titleColor);
+		line-height: 28px;
+	}
+	&__subtitle {
+		margin: 28px 0 0;
+		font-family: $secondaryFontFamily;
+		font-style: normal;
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 20px;
+		color: $subtitleColor;
+	}
 }
 .github-btns {
 	margin: 16px 0 0;
 }
-.github-btn {
-	margin: 20px 0 0;
+.btn-wrapper {
 	display: inline-block;
-	height: 28px;
-	padding: 3px 10px;
-	border: solid 1px $gitBtnBorderText;
+}
+.github-btn-watch {
+	display: inline-block;
+	min-height: 28px;
+	min-width: 124px;
+	margin: 20px 0 0;
+	border: solid 1px $gitBtnBorder;
+	border-radius: 6px;
+	box-shadow: 0 1px 0 rgba(27, 31, 36, 0.04),
+		inset 0 1px 0 rgba(255, 255, 255, 0.25);
+	@include textStyle(500, 12, $gitBtnText);
+	cursor: pointer;
+
+	&__wrapper {
+		position: relative;
+		top: 1px;
+	}
+	&__wrapper svg {
+		fill: $gitBtnText;
+		position: relative;
+		top: 3px;
+		margin-right: 2px;
+	}
+	&__counter {
+		margin: 0 15px 0 0;
+		padding: 2px 4px;
+		background-color: $gitBtnCounter;
+		border-radius: 10px;
+		position: relative;
+		top: 1px;
+	}
+	&__counter::after {
+		display: inline-block;
+		width: 0;
+		height: 0;
+		content: "";
+		border-style: solid;
+		border-width: 4px 4px 0;
+		border-right-color: transparent;
+		border-bottom-color: transparent;
+		border-left-color: transparent;
+		position: absolute;
+		top: 8px;
+		right: -15px;
+	}
+}
+
+.github-btn {
+	display: inline-block;
+	margin: 20px 0 0;
+	min-height: 28px;
+	min-width: 134px;
+	border: solid 1px $gitBtnBorder;
 	border-radius: 6px;
 	cursor: pointer;
 	box-shadow: 0 1px 0 rgba(27, 31, 36, 0.04),
 		inset 0 1px 0 rgba(255, 255, 255, 0.25);
+	@include textStyle(500, 12, $gitBtnText);
 
-	font-size: 12px;
-	line-height: 20px;
-	font-weight: 500;
 	&__icon-wrapper {
+		position: relative;
+		top: 1px;
 	}
 	&__icon-wrapper svg {
+		fill: $gitBtnText;
 		position: relative;
-		top: 3px;
+		top: 4px;
+		margin-right: 2px;
 	}
 	&__counter {
-		padding: 0 3px;
+      margin-right: 30px;
+		padding: 2px 4px;
 		background-color: $gitBtnCounter;
 		border-radius: 10px;
+		position: relative;
+		top: 1px;
 	}
+   &__counter::after {
+		display: inline-block;
+		width: 0;
+		height: 0;
+		content: "";
+		border-style: solid;
+		border-width: 4px 4px 0;
+		border-right-color: transparent;
+		border-bottom-color: transparent;
+		border-left-color: transparent;
+		position: absolute;
+		top: 8px;
+		right: -26px;
+	}
+   &__counter::before {
+      display: inline-block;
+      content: '';
+      height: 28px;
+      width: 1px;
+      background: $gitBtnBorder;
+      position: absolute;
+      top: -5px;
+		right: -10px;
+   }
+
 }
-
-
 

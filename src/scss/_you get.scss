@@ -35,24 +35,11 @@ $breakpoints: (
 	color: $color;
 }
 
-@mixin mq($width, $type: min) {
-	@if map_has_key($breakpoints, $width) {
-		$width: map_get($breakpoints, $width);
-
-		@if $type ==max {
-			$width: $width - 1px;
-		}
-
-		@media only screen and (#{$type}-width: $width) {
-			@content;
-		}
-	}
-}
 
 // ================================================================================================================
 
 .you-get {
-   min-width: 320px;
+   max-width: 320px;
    margin: 120px auto 0;
 	text-align: center;
    overflow: hidden;

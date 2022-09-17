@@ -10,12 +10,6 @@ $secondaryFontFamily: "Lato";
 $primaryColor: #8d81ac;
 $secondaryColor: #848e97;
 $lastColor: #ffffff;
-$overlayColor: #27262a;
-$menuColor: #333333;
-$menuLines: #3b3b3b;
-$quoteColor: #a291a5;
-$lineColor: #645766;
-$bgColor: #4a3b4e;
 $titleColor: #635c73;
 $subtitleColor: #323232;
 
@@ -41,25 +35,11 @@ $breakpoints: (
 	color: $color;
 }
 
-@mixin mq($width, $type: min) {
-	@if map_has_key($breakpoints, $width) {
-		$width: map_get($breakpoints, $width);
-
-		@if $type ==max {
-			$width: $width - 1px;
-		}
-
-		@media only screen and (#{$type}-width: $width) {
-			@content;
-		}
-	}
-}
-
 // ================================================================================================================
 .pricing {
 	margin: 0 auto;
 	text-align: center;
-	background: url(/dist/img/IV-img/testmonials-bg.png) no-repeat;
+	background: url(/dist/img/IV-img/testmonials-bg.png) center no-repeat;
    background-size: auto 100%;
 	&__title {
 		margin: 0 15px;
