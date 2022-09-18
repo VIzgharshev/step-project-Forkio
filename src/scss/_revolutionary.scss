@@ -17,38 +17,29 @@ $gitBtnBorder: #a7a7a7;
 $gitBtnText: #363636;
 $gitBtnCounter: rgba(27, 31, 36, 0.08);
 
-$breakpoints: (
-	"tablet": 481px,
-	"desktop": 993px,
-);
-
 // ================================================================================================================
 // МІКСИНИ
-@mixin textStyle($fontWeight, $fontSize, $color) {
+@mixin textStyle($fontFamily, $fontWeight, $fontSize, $color, $lineHeight) {
+	font-family: $fontFamily;
 	font-weight: $fontWeight;
 	font-size: $fontSize + px;
 	color: $color;
+	line-height: $lineHeight + px;
 }
 
 // ================================================================================================================
 
 .revolutionary {
-	margin: 52px 24px 0;
+	max-width: 320px;
+	margin: 52px auto 0;
 	text-align: center;
 	&__title {
 		text-transform: uppercase;
-		font-family: $primaryFontFamily;
-		@include textStyle(700, 26, $titleColor);
-		line-height: 28px;
+		@include textStyle($primaryFontFamily, 700, 26, $titleColor, 28);
 	}
-	&__subtitle {
-		margin: 28px 0 0;
-		font-family: $secondaryFontFamily;
-		font-style: normal;
-		font-weight: 400;
-		font-size: 14px;
-		line-height: 20px;
-		color: $subtitleColor;
+	&__text {
+		margin: 28px 24px 0;
+		@include textStyle($primaryFontFamily, 400, 14, $subtitleColor, 20);
 	}
 }
 .github-btns {
@@ -66,7 +57,7 @@ $breakpoints: (
 	border-radius: 6px;
 	box-shadow: 0 1px 0 rgba(27, 31, 36, 0.04),
 		inset 0 1px 0 rgba(255, 255, 255, 0.25);
-	@include textStyle(500, 12, $gitBtnText);
+	@include textStyle($secondaryFontFamily, 700, 12, $gitBtnText, 16);
 	cursor: pointer;
 
 	&__wrapper {
@@ -113,7 +104,7 @@ $breakpoints: (
 	cursor: pointer;
 	box-shadow: 0 1px 0 rgba(27, 31, 36, 0.04),
 		inset 0 1px 0 rgba(255, 255, 255, 0.25);
-	@include textStyle(500, 12, $gitBtnText);
+	@include textStyle($secondaryFontFamily, 700, 12, $gitBtnText, 16);
 
 	&__icon-wrapper {
 		position: relative;
@@ -126,14 +117,24 @@ $breakpoints: (
 		margin-right: 2px;
 	}
 	&__counter {
-      margin-right: 30px;
+		margin-right: 30px;
 		padding: 2px 4px;
 		background-color: $gitBtnCounter;
 		border-radius: 10px;
 		position: relative;
 		top: 1px;
 	}
-   &__counter::after {
+	&__counter::before {
+		display: inline-block;
+		content: "";
+		height: 28px;
+		width: 1px;
+		background: $gitBtnBorder;
+		position: absolute;
+		top: -4px;
+		right: -10px;
+	}
+	&__counter::after {
 		display: inline-block;
 		width: 0;
 		height: 0;
@@ -147,16 +148,23 @@ $breakpoints: (
 		top: 8px;
 		right: -26px;
 	}
-   &__counter::before {
-      display: inline-block;
-      content: '';
-      height: 28px;
-      width: 1px;
-      background: $gitBtnBorder;
-      position: absolute;
-      top: -5px;
-		right: -10px;
-   }
-
 }
 
+@media (min-width: 481px) {
+	.revolutionary {
+		max-width: 768px;
+		&__text {
+			margin: 28px auto 0;
+			max-width: 670px;
+			@include textStyle($primaryFontFamily, 400, 21, $subtitleColor, 32);
+		}
+	}
+}
+@media (min-width: 993px) {
+	.revolutionary {
+		max-width: 1200px;
+		&__title {
+			@include textStyle($primaryFontFamily, 700, 54, $titleColor, 54);
+		}
+	}
+}
