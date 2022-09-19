@@ -12,11 +12,11 @@ Assignment for student #2
 - Compile the "Fork Subscription Pricing section". In the block with prices, the third element will always be "highlighted" and will be larger than the others (that is, not on click/hover, but statically).
 
 # Our team:
-- Yaroslav  
+- Yaroslav Prystupliuk
 - Izghashev Volodymyr
 
 # Our responsibilities:
-- Yaroslav - task №1
+- Yaroslav Prystupliuk - task №1
 - Izghashev Volodymyr - task №2
 # Еechnologies we use:
 - JavaScript ES6
