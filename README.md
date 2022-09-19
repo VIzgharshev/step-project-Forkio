@@ -16,7 +16,7 @@ Assignment for student #2
 - Izghashev Volodymyr
 
 # Our responsibilities:
-- Yaroslav - task №1
+- Yaroslav Prystupliuk - task №1
 - Izghashev Volodymyr - task №2
 # Еechnologies we use:
 - JavaScript ES6
