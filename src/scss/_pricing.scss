@@ -12,6 +12,7 @@ $secondaryColor: #848e97;
 $lastColor: #ffffff;
 $titleColor: #635c73;
 $subtitleColor: #323232;
+$bgColor: #4a3b4e;
 
 $gitBtnBorderText: #24292f;
 $gitBtnCounter: rgba(27, 31, 36, 0.08);
@@ -36,8 +37,7 @@ $pricingBtnColor: rgba(255, 255, 255, 0.15);
 .pricing {
 	margin: 0 auto;
 	text-align: center;
-	background: url(/dist/img/IV-img/testmonials-bg.png) center/cover no-repeat;
-   background-size: auto 100vw;
+   background-color: $bgColor;
 	&__title {
 		margin: 0 15px;
 		@include textStyle($primaryFontFamily, 700, 28, $lastColor, 42);
@@ -140,6 +140,8 @@ $pricingBtnColor: rgba(255, 255, 255, 0.15);
 @media (min-width: 481px) {
    .pricing {
       padding: 79px 0 94px;
+      background: url(/dist/img/IV-img/testmonials-bg.png) no-repeat;
+      background-size: 100% 100%;
       &__title {
          @include textStyle($primaryFontFamily, 700, 42, $lastColor, 44);
       }
