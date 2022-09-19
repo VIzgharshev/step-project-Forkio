@@ -1,0 +1,187 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:regular,700)&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Lato:regular,italic,700,700&display=swap");
+
+// ЗМІННІ===========================================================================================================
+// Шрифт по замовчуванні
+$primaryFontFamily: "Montserrat";
+$secondaryFontFamily: "Lato";
+
+// color
+$primaryColor: #8d81ac;
+$secondaryColor: #848e97;
+$lastColor: #ffffff;
+$titleColor: #635c73;
+$subtitleColor: #323232;
+
+$gitBtnBorderText: #24292f;
+$gitBtnCounter: rgba(27, 31, 36, 0.08);
+
+$pricingColor1: rgba(255, 255, 255, 0.06);
+$pricingColor2: rgba(255, 255, 255, 0.11);
+$pricingColor3: rgba(0, 0, 0, 0.11);
+$pricingColor4: rgba(70, 48, 72, 0.84);
+$pricingBtnColor: rgba(255, 255, 255, 0.15);
+
+// ================================================================================================================
+// МІКСИНИ
+@mixin textStyle($fontFamily, $fontWeight, $fontSize, $color, $lineHeight) {
+	font-family: $fontFamily;
+	font-weight: $fontWeight;
+	font-size: $fontSize + px;
+	color: $color;
+	line-height: $lineHeight + px;
+}
+
+// ================================================================================================================
+.pricing {
+	margin: 0 auto;
+	text-align: center;
+	background: url(/dist/img/IV-img/testmonials-bg.png) center/cover no-repeat;
+   background-size: auto 100vw;
+	&__title {
+		margin: 0 15px;
+		@include textStyle($primaryFontFamily, 700, 28, $lastColor, 42);
+	}
+}
+.product-list{
+   padding-bottom: 12px;
+}
+.product {
+	max-width: 257px;
+	height: 457px;
+	margin: 18px auto 0;
+   background-color: $pricingColor2;
+	&__title {
+		padding: 36px 60px;
+		background-color: $pricingColor1;
+		text-transform: uppercase;
+		@include textStyle($primaryFontFamily, 400, 24, $lastColor, 24);
+	}
+	&__price {
+		display: block;
+		padding: 30px 0 20px;
+		@include textStyle($primaryFontFamily, 700, 60, $lastColor, 62);
+	}
+	&__term {
+		display: block;
+		text-transform: uppercase;
+		@include textStyle($primaryFontFamily, 400, 14, $lastColor, 16px);
+		position: relative;
+	}
+	&__term::after {
+		content: "";
+		width: 60px;
+		height: 5px;
+		background-color: $primaryColor;
+		position: absolute;
+		left: 99px;
+		top: 56px;
+	}
+	&__license {
+		display: block;
+		margin: 73px 0 39px;
+		@include textStyle($primaryFontFamily, 400, 16, $lastColor, 18);
+	}
+	&__btn {
+		padding: 13.5px 36px;
+		text-transform: uppercase;
+		@include textStyle($primaryFontFamily, 400, 15, $lastColor, 15);
+      border-radius: 23px;
+		background-color: $pricingBtnColor;
+	}
+}
+
+.product-large {
+   max-width: 299px;
+	min-height: 560px;
+	margin: 18px auto 0;
+   background-color: $pricingColor4;
+   &__title {
+      padding: 43px 97px;
+		background-color: $pricingColor3;
+		text-transform: uppercase;
+		@include textStyle($primaryFontFamily, 400, 24, $lastColor, 24);
+   }
+   &__price {
+      display: block;
+		padding: 14px 0 16px;
+		@include textStyle($primaryFontFamily, 700, 82, $lastColor, 84);
+   }
+   &__term {
+      display: block;
+		text-transform: uppercase;
+		@include textStyle($primaryFontFamily, 400, 14, $lastColor, 16);
+		position: relative;
+   }
+   &__term::after {
+		content: "";
+		width: 60px;
+		height: 5px;
+		background-color: $primaryColor;
+		position: absolute;
+		left: 120px;
+		top: 66px;
+	}
+   &__license {
+      display: block;
+		margin: 91px 0 63px;
+		@include textStyle($primaryFontFamily, 400, 16, $lastColor, 32);
+      line-height: 32px;
+   }
+   &__btn {
+      padding: 18.5px 48px;
+      border-radius: 30px;
+      text-transform: uppercase;
+		@include textStyle($primaryFontFamily, 400, 16, $lastColor, 18);
+      background: $pricingBtnColor;
+   }
+}
+
+@media (min-width: 481px) {
+   .pricing {
+      padding: 79px 0 94px;
+      &__title {
+         @include textStyle($primaryFontFamily, 700, 42, $lastColor, 44);
+      }
+   }
+   .product-list{
+      margin: 39px auto 0;
+      display: grid;
+      grid-template-columns: max-content min-content;
+      grid-template-rows: min-content max-content;
+      gap: 30px;
+      justify-content: center;
+   }
+   .product {
+      margin: 0;
+   }
+   .product-one {
+      place-self: end;
+   }
+   .product-four {
+      place-self: center;
+   }
+   .product-large {
+      margin: 0;
+   }
+}
+
+@media (min-width: 993px) {
+   .pricing {
+      &__title {
+         @include textStyle($primaryFontFamily, 700, 48, $lastColor, 50);
+      }
+   }
+   .product-list{
+      margin: 61px auto 0;
+      grid-template-columns: min-content min-content max-content min-content;
+      grid-template-rows: max-content;
+      column-gap: 15px;
+   }
+   .product-one {
+      place-self: center;
+   }
+   .product-two {
+      place-self: center;
+   }
+}
