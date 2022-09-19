@@ -1,0 +1,151 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:regular,700)&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Lato:regular,italic,700,700&display=swap");
+
+// ЗМІННІ===========================================================================================================
+// Шрифт по замовчуванні
+$primaryFontFamily: "Montserrat";
+$secondaryFontFamily: "Lato";
+
+// color
+$primaryColor: #8d81ac;
+$secondaryColor: #848e97;
+$lastColor: #ffffff;
+$titleColor: #635c73;
+$subtitleColor: #323232;
+
+$gitBtnBorderText: #24292f;
+$gitBtnCounter: rgba(27, 31, 36, 0.08);
+
+// ================================================================================================================
+// МІКСИНИ
+@mixin textStyle($fontFamily, $fontWeight, $fontSize, $color, $lineHeight) {
+	font-family: $fontFamily;
+	font-weight: $fontWeight;
+	font-size: $fontSize + px;
+	color: $color;
+	line-height: $lineHeight + px;
+}
+
+// ================================================================================================================
+
+.you-get {
+	margin: 120px auto 0;
+	overflow: hidden;
+	&__inner-wrapper {
+		max-width: 320px;
+		margin: 0 auto;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+	&__title {
+		text-align: center;
+		margin: 0 10px;
+		@include textStyle($primaryFontFamily, 700, 32, $primaryColor, 38);
+	}
+	&__item {
+		margin: 36px 25px 0;
+		text-align: center;
+	}
+	&__item-title {
+		margin: 14px 0;
+		@include textStyle($primaryFontFamily, 400, 16, $subtitleColor, 21);
+	}
+	&__item-text {
+		@include textStyle($primaryFontFamily, 400, 14, $secondaryColor, 21);
+	}
+	&__screenshot {
+		margin: 58px 0 0;
+		max-height: 381px;
+		position: relative;
+		right: 0px;
+	}
+}
+
+@media (min-width: 481px) {
+	.you-get {
+		max-width: none;
+		margin: 120px auto 0;
+		overflow: none;
+		&__inner-wrapper {
+			max-width: 703px;
+		}
+		&__list {
+			margin: 0 auto;
+			max-width: 703px;
+		}
+      &__title {
+         margin: 0 auto;
+         @include textStyle($primaryFontFamily, 700, 32, $primaryColor, 38);
+      }
+		&__item {
+			margin: 36px 15px 0;
+			text-align: start;
+			display: grid;
+			grid-template-columns: 16% 1fr;
+			column-gap: 34px;
+		}
+		&__item-title {
+			margin: 0;
+			grid-column-start: 2;
+			grid-row-start: 1;
+		}
+		&__item-text {
+			padding-top: 25px;
+			grid-column-start: 2;
+			grid-row-start: 1;
+		}
+		&__screenshot-wrapper {
+			margin: 58px auto 0;
+			max-width: 703px;
+			display: grid;
+			justify-content: end;
+		}
+		&__screenshot {
+			margin: 0;
+			max-height: none;
+			max-width: 100%;
+		}
+	}
+}
+
+@media (min-width: 993px) {
+	.you-get {
+		margin: 120px auto 0;
+		&__inner-wrapper {
+         margin-bottom: 33px;
+			max-width: 1120px;
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+		}
+		&__title {
+			@include textStyle($primaryFontFamily, 700, 42, $primaryColor, 50);
+			grid-column-start: 2;
+         grid-row-start: 1;
+		}
+		&__list {
+			margin: 0 auto;
+			grid-column-start: 1;
+			grid-row-start: 1;
+		}
+		&__item:first-child {
+			margin: 0 0 0;
+		}
+		&__item {
+			margin: 36px 0 0;
+			text-align: start;
+			display: grid;
+			justify-content: center;
+
+			grid-template-columns: 16% 1fr;
+			column-gap: 40px;
+		}
+		&__icon {
+			place-self: center;
+		}
+		&__screenshot-wrapper {
+         grid-column-start: 2;
+         grid-row-start: 1;
+		}
+	}
+}
