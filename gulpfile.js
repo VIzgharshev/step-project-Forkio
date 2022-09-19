@@ -115,7 +115,7 @@ exports.watchScripts = watchScripts;
 //----------Обробка зображень 
 function img() {
 	return gulp
-		.src("./src/img/**/*.{png,jpg,jpeg,gif,svg}")
+		.src("./src/img/**/*.{png,jpg,jpeg,gif,svg,ico}")
 		.pipe(
 			plumber({
 				errorHandler: notify.onError((error) => ({
