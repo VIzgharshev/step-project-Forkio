@@ -40,7 +40,7 @@ $gitBtnCounter: rgba(27, 31, 36, 0.08);
 	}
 	&__title {
 		text-align: center;
-		margin: 0 auto;
+		margin: 0 10px;
 		@include textStyle($primaryFontFamily, 700, 32, $primaryColor, 38);
 	}
 	&__item {
