@@ -1,0 +1,51 @@
+@import "_reset";
+
+@import url("https://fonts.googleapis.com/css?family=Montserrat:regular,700)&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Lato:regular,italic,700,700&display=swap");
+
+// ЗМІННІ===========================================================================================================
+// Шрифт по замовчуванні
+$primaryFontFamily: "Montserrat";
+$secondaryFontFamily: "Lato";
+
+// color
+$primaryColor: #8d81ac;
+$secondaryColor: #848e97;
+$lastColor: #ffffff;
+$overlayColor: #27262a;
+$menuColor: #333333;
+$menuLines: #3b3b3b;
+$quoteColor: #a291a5;
+$lineColor: #645766;
+$bgColor: #4a3b4e;
+
+$breakpoints: (
+	"tablet": 481px,
+	"desktop": 993px,
+);
+
+// ================================================================================================================
+// МШКСИНИ
+@mixin textStyle($fontWeight, $fontSize, $color) {
+	font-weight: $fontWeight;
+	font-size: $fontSize + px;
+	color: $color;
+}
+
+@mixin mq($width, $type: min) {
+	@if map_has_key($breakpoints, $width) {
+		$width: map_get($breakpoints, $width);
+
+		@if $type ==max {
+			$width: $width - 1px;
+		}
+
+		@media only screen and (#{$type}-width: $width) {
+			@content;
+		}
+	}
+}
+
+// ================================================================================================================
+@import "_header.scss";
+@import "_talking.scss";
