@@ -1,0 +1,157 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:regular,700)&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Lato:regular,italic,700,700&display=swap");
+
+// ЗМІННІ===========================================================================================================
+// Шрифт по замовчуванні
+$primaryFontFamily: "Montserrat";
+$secondaryFontFamily: "Lato";
+
+// color
+$primaryColor: #8d81ac;
+$secondaryColor: #848e97;
+$lastColor: #ffffff;
+$overlayColor: #27262a;
+$menuColor: #333333;
+$menuLines: #3b3b3b;
+$quoteColor: #a291a5;
+$lineColor: #645766;
+$bgColor: #4a3b4e;
+
+$breakpoints: (
+	"tablet": 481px,
+	"desktop": 993px,
+);
+
+// ================================================================================================================
+// МШКСИНИ
+@mixin textStyle($fontWeight, $fontSize, $color) {
+	font-weight: $fontWeight;
+	font-size: $fontSize + px;
+	color: $color;
+}
+
+@mixin mq($width, $type: min) {
+	@if map_has_key($breakpoints, $width) {
+		$width: map_get($breakpoints, $width);
+
+		@if $type ==max {
+			$width: $width - 1px;
+		}
+
+		@media only screen and (#{$type}-width: $width) {
+			@content;
+		}
+	}
+}
+
+// ================================================================================================================
+
+// SECTION People Are Talking About Fork
+
+.people-talking {
+	background-image: url(img/YPImg/section3.png);
+	background-repeat: no-repeat;
+	background-position-x: center;
+	background-color: $bgColor;
+
+	// .people-talking__title
+
+	&__title {
+		@include textStyle(700, 36, $lastColor);
+		text-align: center;
+		padding: 50px 0 53px 0;
+	}
+}
+
+@include mq("tablet") {
+	.people-talking {
+		// .people-talking__title
+
+		&__title {
+			padding: 88px 0;
+		}
+	}
+}
+
+@include mq("desktop") {
+	.people-talking {
+		// .people-talking__title
+
+		&__title {
+			padding: 108px 0 81px 0;
+		}
+	}
+}
+
+.partners {
+	display: grid;
+	grid-template-columns: 1fr;
+
+	// .partners__wrap
+
+	.partners__wrap {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+
+	// .partners__img
+	&__img {
+		padding: 45px 0 33px 0;
+	}
+
+	// .partners__text
+
+	&__text {
+		font-family: $secondaryFontFamily;
+		font-style: italic;
+		@include textStyle(700, 16, $lastColor);
+		text-align: center;
+	}
+
+	&__quote {
+		font-family: $secondaryFontFamily;
+		@include textStyle(400, 14, $quoteColor);
+		text-align: center;
+		padding: 37px 0 22px 0;
+		border-bottom: 2px solid $lineColor;
+		margin: 0 0 88px 0;
+	}
+}
+
+@include mq("tablet") {
+	.partners {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		align-items: end;
+		gap: 58px 97px;
+
+		&__img {
+			padding: 0 0 33px 0;
+		}
+
+		&__quote {
+			grid-column-start: 1;
+			grid-column-end: 3;
+		}
+	}
+}
+
+@include mq("desktop") {
+	.partners {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		align-items: end;
+		column-gap: 112px 97px;
+
+		&__img {
+			padding: 0 0 33px 0;
+		}
+
+		&__quote {
+			grid-column-start: 1;
+			grid-column-end: 4;
+		}
+	}
+}
