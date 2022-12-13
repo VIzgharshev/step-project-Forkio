@@ -16,9 +16,11 @@ Assignment for student #2
 - Izghashev Volodymyr
 
 # Our responsibilities
+
 **Yaroslav Prystupliuk**
 - Created the website header
 - Created "People Are Talking About Fork" section
+
 **Izghashev Volodymyr**
 - Created "Revolutionary Editor" section
 - Created "Here is what you get" section
