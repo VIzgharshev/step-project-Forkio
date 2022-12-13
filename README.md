@@ -25,3 +25,4 @@ Assignment for student #2
 - CSS (SASS, SCSS)
 - GULP
 - NPM
+- GIT
