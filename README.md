@@ -15,7 +15,7 @@ Assignment for student #2
 - Yaroslav Prystupliuk
 - Izghashev Volodymyr
 
-# Our responsibilities:
+ Our responsibilities:
 **Yaroslav Prystupliuk**
 **Izghashev Volodymyr**
 
