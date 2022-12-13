@@ -11,15 +11,22 @@ Assignment for student #2
 - Create a section "Here is what you get".
 - Compile the "Fork Subscription Pricing section". In the block with prices, the third element will always be "highlighted" and will be larger than the others (that is, not on click/hover, but statically).
 
-# Our team:
+# Team
 - Yaroslav Prystupliuk
 - Izghashev Volodymyr
 
- Our responsibilities:
+# Our responsibilities
 **Yaroslav Prystupliuk**
+- Created the website header
+- Created "People Are Talking About Fork" section
 **Izghashev Volodymyr**
-
-# Technologies we used:
+- Created "Revolutionary Editor" section
+- Created "Here is what you get" section
+- Created "Fork Subscription Pricing" section
+- Created gulpfile, remote repository
+- Control GIT branches
+  
+# Technologies
 - JavaScript ES6
 - HTML5
 - CSS (SASS, SCSS)
