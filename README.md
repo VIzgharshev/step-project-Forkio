@@ -18,7 +18,7 @@ Assignment for student #2
 # Our responsibilities:
 - Yaroslav Prystupliuk - task №1
 - Izghashev Volodymyr - task №2
-# Еechnologies we use:
+# Technologies we use:
 - JavaScript ES6
 - HTML5
 - CSS (SASS, SCSS)
