@@ -140,7 +140,7 @@ $pricingBtnColor: rgba(255, 255, 255, 0.15);
 @media (min-width: 481px) {
 	.pricing {
 		padding: 79px 0 94px;
-		background: url(/dist/img/IV-img/testmonials-bg.png) no-repeat;
+		//background: url(/dist/img/IV-img/testmonials-bg.png) no-repeat;
 		background-size: 100% 100%;
 		&__title {
 			@include textStyle($primaryFontFamily, 700, 42, $lastColor, 44);
